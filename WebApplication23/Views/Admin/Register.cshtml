@@ -1,0 +1,20 @@
+﻿@model WebApplication23.Controllers.LoginViewModel
+<h1>Login</h1>
+<link rel="stylesheet" href="~/css/style.css"  />
+<form asp-controller="Admin" asp-action="Register" method="post">
+    
+    <div>
+        <label>UserName</label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <p>
+        <button class="btn btn-primary btn-lg float-right" asp-action="Register" asp-controller="Admin" type="submit">Отправить</button>
+    </p>
+</form>

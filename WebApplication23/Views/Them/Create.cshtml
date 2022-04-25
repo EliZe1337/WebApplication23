@@ -1,0 +1,36 @@
+﻿@using WebApplication23
+@model ThemViewModel
+<h1>Login</h1>
+
+<form asp-controller="Admin" asp-action="Register" method="post">
+    
+    <div>
+        <label>UserName</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label>Photo</label>
+        <input asp-for="src_ph" />
+        <span asp-validation-for="src_ph"></span>
+    </div>
+    <div>
+        <label>Path</label>
+        <input asp-for="Path" />
+        <span asp-validation-for="Path"></span>
+    </div>
+    <div>
+        <label>desk</label>
+        <input asp-for="deskription" />
+        <span asp-validation-for="deskription"></span>
+    </div>
+    <div>
+        <label>deskription</label>
+        <input asp-for="FullDeskription" />
+        <span asp-validation-for="FullDeskription"></span>
+    </div>
+
+    <p>
+        <button class="btn btn-primary btn-lg float-right" asp-action="Create" asp-controller="Them" type="submit">Отправить</button>
+    </p>
+</form>

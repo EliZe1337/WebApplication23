@@ -1,0 +1,40 @@
+﻿@using WebApplication23
+@model ThemViewModel
+<div style="padding: 10px;"></div>
+ <div class="col-md-12">
+    <div class="card-body">
+        <div class="card card-outline-secondary" style="background-color: white">
+            <div class="card-header">
+                <h3 class="mb-0 text-center ParagraphHome">title</h3>
+            </div>
+            <div class="card-body">
+                <form asp-action="Save" enctype="multipart/form-data">
+                    
+                    <div asp-validation-summary="All" style="font-size:23px; font-family:Impact, serif" class="text-danger text-center"></div>
+                     <div class="form-group">
+                        <label asp-for="Path"></label>
+                        <input asp-for="Path" class="form-control" type="text">
+                    </div>
+                   <div>
+                        <label>Photo</label>
+                        <input asp-for="src_ph" />
+                        <span asp-validation-for="src_ph"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="deskription"></label>
+                        <input asp-for="deskription" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FullDeskription"></label>
+                        <input asp-for="FullDeskription" class="form-control" type="text">
+                    </div>
+                    <button class="btn btn-primary btn-lg float-right" asp-action="Edit" asp-controller="Them" type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

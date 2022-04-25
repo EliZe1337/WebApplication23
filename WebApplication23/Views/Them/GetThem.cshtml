@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebApplication23.ThemViewModel
+@{
+    var them = @Model;
+}
+<link rel="stylesheet" href="~/css/style.css">
+<div style="padding: 10px;"></div>
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            @if(@them.src_ph != null)
+            {
+                <img src=@them.src_ph class="img-fluid rounded-start rounded" alt="@them.Name">
+            }
+            else
+            {
+                <img src="https://images.wallpaperscraft.ru/image/single/mercedes_benz_s_class_w222_112850_800x600.jpg" 
+                    class="img-fluid rounded-start rounded" alt="@them.Name"> 
+            }
+            
+        </div>
+        <div class="col-md-4">
+            <div class="card-body">
+                <h5 class="card-title text-center">@them.Name</h5>
+                <p class="card-text"><b>Описание: </b>@them.deskription</p>
+                <p class="card-text"><b>Стоимость: </b>@them.FullDeskription</p>
+                
+                <p class="card-text"><b>Модель: </b>@them.Path</p>
+                <a asp-controller="Them" asp-action="GetFile" asp-route-id="@them.Id" class="btn btn-danger">download</a>
+               
+            </div>
+        </div>
+       
+    </div>
+</div>

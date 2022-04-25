@@ -1,0 +1,91 @@
+﻿@{
+    var users = @Model;
+}
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+<link rel="stylesheet" href="~/css/style.css">
+<div class="row" style="position:absolute; top:60px; right:60px">
+	@*<a asp-controller="Home" asp-action="Index">[Home]</a>
+	
+	
+	<a asp-controller="Admin" asp-action="Register">[Register]</a>*@
+	<ul class="navbar-nav">
+		@if (User.Identity.IsAuthenticated)
+		{
+			
+			<li class="nav-item">
+				<a  class="nav-link text-dark" title="Manage">@User.Identity.Name   </a>
+			</li>
+			@*<a asp-controller="Admin" asp-action="Administrator">[Administrator]</a>
+			<a asp-controller="Admin" asp-action="Manager">[Manager]</a>*@
+			@*<a asp-controller="Admin" asp-action="LogOff">[Log Off]</a>*@
+			<li class="nav-item">
+				<form  class="form-inline" asp-controller="Admin" asp-action="LogOff">
+					<button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+				</form>
+			</li>
+			<div class="col-md-8 col-md-offset-2 text-center">
+				
+				<a asp-controller="Them" asp-action="Create" class="btn btn-primary btn-lg float-right">Создать тему</a>
+			</div>
+			@*<a asp-controller="Them" asp-action="ShwAllUser">[показать]</a>*@
+		}
+		else
+		{
+			
+			<a asp-controller="Admin" asp-action="Index">Login</a>
+		}
+	</ul>
+</div>
+
+<section id="fh5co-services" data-section="services">
+	<div class="fh5co-services">
+		<div class="card-body">
+			<div class="row">
+				<h1>читы на кс го</h1>
+				<div class="col-md-12 section-heading text-center">
+					<div class="row">
+						@foreach (var car in users)
+						{
+							<div class="row-bottom-padded-sm">
+								<div class="col" style="padding: 130px; ">
+									<div class="card h-400">
+					
+					
+					
+										<img src="https://images.wallpaperscraft.ru/image/single/mercedes_benz_s_class_w222_112850_800x600.jpg" class="card-img-top" alt="@car.Name" height = "710px" width ="130px" >
+					
+
+										<div class="card-body">
+											<h5 class="card-title">@car.Name</h5>
+											<p class="card-text">@car.deskription</p>
+										</div>
+										@*<ul class="list-group list-group-flush">
+											<li class="list-group-item">Стоимость: @car.Price ₽</li>
+											<li class="list-group-item">@car.TypeCar</li>
+										</ul>*@
+										<div class="card-body">
+											@*<a asp-action="GetCar" asp-route-id="@car.Id" class="card-link">Перейти</a>*@
+											@* <a asp-controller="Basket" asp-action="Add" asp-route-id="@id" class="card-link">Добавить</a> *@
+                        
+											<hr/>
+											
+											
+											<a asp-controller="Them" asp-action="Edit" asp-route-id="@car.Id" class="btn btn-primary">Изменить</a>
+											
+											<a asp-controller="Them" asp-action="GetFile" asp-route-id="@car.Id" class="btn btn-danger">download</a>
+											<a asp-controller="Them" asp-action="Delete" asp-route-id="@car.Id" class="btn btn-danger">Delete</a>
+											<a asp-controller="Them" asp-action="GetThem" asp-route-id="@car.Id" class="btn btn-danger">перейти к теме</a>
+											
+                        
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+					</div>  
+			<div id="fh5co-counter-section" class="fh5co-counters">
+				
+			</div>
+		</div>
+	</div>
+</section>
